@@ -1,0 +1,14 @@
+@import '../core/variables';
+
+.filterByKi__container{
+    display: flex;
+    flex-direction: column;
+    font-family: $font-family;
+    margin-top: 2rem;
+    &__selects{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+}

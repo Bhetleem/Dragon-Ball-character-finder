@@ -1,12 +1,13 @@
 @import './core/reset';
+@import './core/variables';
 
 .header {
-    background-color: orange;
+    background-color: $orange-color;
     padding: 0.8rem;
     display: flex;
     justify-content: space-between;
     gap: 3rem;
-    font-family: sans-serif;
+    font-family: $font-family;
 
     &__title {
         font-size: 1rem;

@@ -1,1 +1,27 @@
+@import '../core/variables';
 
+.filters__title{
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    max-width: 80%; 
+    margin: 1rem;
+    font-family: $font-family;
+}
+
+.filters__form{
+    font-family: $font-family;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+.filters__button{
+    position: absolute;
+    bottom: 2rem;
+    width: 90%;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    background-color: $orange-color;
+
+}

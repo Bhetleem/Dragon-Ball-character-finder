@@ -1,12 +1,13 @@
 import "../scss/layout/CharacterDetail.scss";
 
 function CharacterDetail({selectedCharacter}) {
+  console.log(selectedCharacter);
   return ( 
-    <section>
-        <img src={selectedCharacter.image} alt={selectedCharacter.name} />
-        <h3>{selectedCharacter.name}</h3>
-        <h3>{selectedCharacter.ki}</h3>
-        <p>From {selectedCharacter.description}</p>
+    <section className="selectedCard">
+        <img className="selectedCard__image" src={selectedCharacter.image} alt={selectedCharacter.name} />
+        <h3 className="selectedCard__name">{selectedCharacter.name}</h3>
+        <h3 className="selectedCard__ki">{selectedCharacter.ki}</h3>
+        <p className="selectedCard__description">From {selectedCharacter.description}</p>
     </section>
   )
 }

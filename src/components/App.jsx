@@ -49,7 +49,7 @@ function App() {
   const kiMatch = character.ki >= filterKiFrom && character.ki <= filterKiTo;
   return nameMatch && kiMatch;
   });
-  //console.log(filteredCharacters);
+  //console.log(characters);
 
   const {pathname} = useLocation();
   //console.log(pathname);
@@ -58,6 +58,7 @@ function App() {
   const selectedCharacterId = isOnCharacterDetailPage !== null ? isOnCharacterDetailPage.params.id :null;
   //console.log(selectedCharacterId);
   const selectedCharacter = characters.find((character) => {
+    //console.log(character);
     return parseInt(character.id) === parseInt(selectedCharacterId);
   })
   //console.log(selectedCharacter);
