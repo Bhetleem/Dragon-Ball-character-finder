@@ -12,7 +12,12 @@ function App() {
   const [characters, setCharacters] = useState([]);
 
   const [inputName, setInputName] = useState("");
+  const [inputKiFrom, setInputKiFrom] = useState(0);
+  const [inputKiTo, setInputKiTo] = useState(Infinity);
+
   const [filterName, setFilterName] = useState("");
+  const [filterKiFrom, setFilterKiFrom] = useState(0);
+  const [filterKiTo, setFilterKiTo] = useState(Infinity);
 
   const navigate = useNavigate();
 
@@ -23,16 +28,21 @@ function App() {
   },[])
 
   const handleInputName = (inputValue) => setInputName(inputValue);
+  const handleInputKiFrom = (inputValue) => setInputKiFrom(inputValue);
+  const handleInputKiTo = (inputValue) => setInputKiTo(inputValue);
 
   const handleSearch = (ev) => {
     ev.preventDefault();
     setFilterName(inputName);
+    setFilterKiFrom(inputKiFrom);
+    setFilterKiTo(inputKiTo);
     navigate("/results");
   };
 
   const filteredCharacters = characters.filter((character) => {
   const nameMatch = character.name.toLowerCase().includes(filterName.toLowerCase());
-  return nameMatch;
+  const kiMatch = character.ki >= filterKiFrom && character.ki <= filterKiTo;
+  return nameMatch && kiMatch;
   });
   console.log(filteredCharacters);
 
@@ -45,15 +55,20 @@ function App() {
     <main>
       <Routes>
         <Route path="/" element={
-           <>
-        <Filters 
-          onFilterName={handleInputName} 
-          inputName={inputName} 
-          onSearch={handleSearch} 
-          characters={characters} />
-       </>
-      } 
-      />
+          <>
+            <Filters 
+              onFilterName={handleInputName} 
+              inputName={inputName}
+              onSearch={handleSearch} 
+              onFilterKiFrom={handleInputKiFrom}
+              inputKiFrom={inputKiFrom}
+              onFilterKiTo={handleInputKiTo}
+              inputKiTo={inputKiTo}
+              characters={characters}
+            />
+          </>
+        } 
+        />
         <Route
             path="/results"
             element={

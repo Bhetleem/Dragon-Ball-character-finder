@@ -12,7 +12,7 @@ const getCharactersFromAPI = () => {
                     id: character.id,
                 }
             })
-            console.log(parsedCharacters);
+        
             return parsedCharacters;
         })
 }
