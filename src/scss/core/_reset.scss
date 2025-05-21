@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  fieldset {
+    border: 0;
+  }
+  
+  input {
+    align-self: self-start;
+  }
+  
+  .comments {
+    display: block;
+  }
+  
+  #root{
+    display: grid;
+    min-height: 100dvh;
+    grid-auto-rows: auto 1fr auto;
+  }
