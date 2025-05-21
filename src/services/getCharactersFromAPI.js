@@ -1,6 +1,11 @@
 const getCharactersFromAPI = () => {
     return fetch("https://dragonball-api.com/api/characters")
-        .then(res => res.json())
+        .then(res => {
+            if (!res.ok) {
+                throw new Error(`HTTP error! status: ${res.status}`);
+            }
+            return res.json();
+        })
         .then(data => {
             const parsedCharacters = data.items.map((character) => {
                 const cleanedKi = character.ki.replace(/\./g, '');
@@ -11,10 +16,12 @@ const getCharactersFromAPI = () => {
                     description: character.description,
                     id: character.id,
                 }
-            })
-        
+            });
             return parsedCharacters;
         })
+        .catch(error => {
+            throw new Error(`Error fetching characters: ${error.message}`);
+        });
 }
 
 export default getCharactersFromAPI;

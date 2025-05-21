@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [characters, setCharacters] = useState([]);
+  const [error, setError] = useState("");
 
   const [inputName, setInputName] = useState("");
   const [inputKiFrom, setInputKiFrom] = useState(0);
@@ -21,9 +22,13 @@ function App() {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
+   useEffect(() => {
     getCharactersFromAPI().then((characters) => {
       setCharacters(characters);
+      setError("");
+    })
+    .catch((err) => {
+      setError(err.message);
     });
   },[])
 
@@ -44,7 +49,7 @@ function App() {
   const kiMatch = character.ki >= filterKiFrom && character.ki <= filterKiTo;
   return nameMatch && kiMatch;
   });
-  console.log(filteredCharacters);
+  //console.log(filteredCharacters);
 
   return (
     <>
@@ -53,6 +58,7 @@ function App() {
       <img className="header__image" src="./public/DragonBall_header.jpg" alt="Dragon Ball Logo" />
     </header>
     <main>
+      {error && <p className="error">{error}</p>}
       <Routes>
         <Route path="/" element={
           <>
