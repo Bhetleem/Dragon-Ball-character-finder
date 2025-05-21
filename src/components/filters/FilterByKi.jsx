@@ -6,13 +6,11 @@ function FilterByKi({ characters, onFilterKiFrom, onFilterKiTo }) {
   const uniqueSortedKi = [...new Set(kiValues)].sort((a, b) => a - b);
    const handleChangeFrom = (event) => {
         const inputValue = event.target.value;
-        //console.log(inputValue);
         onFilterKiFrom(inputValue);
     };
 
    const handleChangeTo = (event) => {
        const inputValue = event.target.value;
-       //console.log(inputValue);
        onFilterKiTo(inputValue);
    };
 

@@ -1,7 +1,6 @@
 import "../scss/layout/CharacterDetail.scss";
 
 function CharacterDetail({selectedCharacter}) {
-  console.log(selectedCharacter);
   return ( 
     <section className="selectedCard">
         <img className="selectedCard__image" src={selectedCharacter.image} alt={selectedCharacter.name} />
