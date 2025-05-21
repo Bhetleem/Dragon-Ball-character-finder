@@ -18,26 +18,24 @@ function FilterByKi({ characters, onFilterKiFrom, onFilterKiTo }) {
 
   return (
     <>
-      <label>
+      <label htmlFor="filterByKi">Search by Ki</label>
         From:
-        <select onChange={handleChangeFrom}>
+         <select name="filterByKi" id="filterByKi" onChange={handleChangeFrom}>
+          <option value="0">From</option>
           {uniqueSortedKi.map((ki) => (
             <option key={`from-${ki}`} value={ki}>
               {ki}
             </option>
           ))}
-        </select>
-      </label>
-      <label>
-        To:
+        </select>      
         <select onChange={handleChangeTo}>
-            {uniqueSortedKi.map((ki) => (
+          <option value="infinity">To</option>
+          {uniqueSortedKi.map((ki) => (
             <option key={`to-${ki}`} value={ki}>
               {ki}
             </option>
           ))}
         </select>
-      </label>
     </>
   );
 }
