@@ -1,1 +1,22 @@
 @import './core/reset';
+
+.header {
+    background-color: orange;
+    padding: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    font-family: sans-serif;
+
+    &__title {
+        font-size: 1rem;
+        font-weight: bold;
+        color: #333;
+        max-width: 80%;
+    }
+
+    &__image {
+        width: 20%;
+    }
+    
+}
