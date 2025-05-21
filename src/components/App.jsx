@@ -27,7 +27,7 @@ function App() {
   const handleSearch = (ev) => {
     ev.preventDefault();
     setFilterName(inputName);
-    navigate("/");
+    navigate("/results");
   };
 
   const filteredCharacters = characters.filter((character) => {
@@ -54,6 +54,14 @@ function App() {
        </>
       } 
       />
+        <Route
+            path="/results"
+            element={
+              <>
+              <CharacterList filteredCharacters={filteredCharacters} />
+              </>
+            }
+          />
       </Routes>
     </main>
     </>
