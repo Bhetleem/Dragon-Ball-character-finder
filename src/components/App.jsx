@@ -3,7 +3,7 @@ import "../scss/App.scss";
 import CharacterList from "./CharacterList";
 import Filters from "./filters/Filters";
 import getCharactersFromAPI from "../services/getCharactersFromAPI";
-
+import CharacterDetail from "./CharacterDetail";
 
 import { matchPath, Route, Routes, useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -51,6 +51,17 @@ function App() {
   });
   //console.log(filteredCharacters);
 
+  const {pathname} = useLocation();
+  //console.log(pathname);
+  const isOnCharacterDetailPage = matchPath("/character/:id", pathname);
+  //console.log(isOnCharacterDetailPage);
+  const selectedCharacterId = isOnCharacterDetailPage !== null ? isOnCharacterDetailPage.params.id :null;
+  //console.log(selectedCharacterId);
+  const selectedCharacter = characters.find((character) => {
+    return parseInt(character.id) === parseInt(selectedCharacterId);
+  })
+  //console.log(selectedCharacter);
+
   return (
     <>
     <header className="header">
@@ -83,6 +94,14 @@ function App() {
               </>
             }
           />
+           <Route
+            path="/character/:id"
+            element={
+              <>
+                <CharacterDetail selectedCharacter={selectedCharacter} />
+              </>
+            }
+          />         
       </Routes>
     </main>
     </>

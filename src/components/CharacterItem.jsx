@@ -1,10 +1,15 @@
 import "../scss/layout/CharacterItem.scss";
+import { Link } from "react-router-dom";
 
-function CharacterItem({ character }) {
+function CharacterItem({ filteredCharacter }) {
   return (
-    <li className="characterItem_container">
-      <h4>{character.name}</h4>
-      <p>{character.ki}</p>
+    <li>
+      <Link to={`/character/${filteredCharacter.id}`}>
+      <div className="characterItem_container">
+      <h4>{filteredCharacter.name}</h4>
+      <p>{filteredCharacter.ki}</p>
+      </div>
+      </Link>
     </li>
   );
 }

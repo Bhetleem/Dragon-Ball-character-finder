@@ -3,7 +3,7 @@ import "../scss/layout/CharacterList.scss";
 
 function CharacterList({filteredCharacters}) {   
   const characterElements = filteredCharacters.map((filteredCharacter) => {
-    return <CharacterItem key={filteredCharacter.id} character={filteredCharacter} />
+    return <CharacterItem key={filteredCharacter.id} filteredCharacter={filteredCharacter} />
   })
   
   return (
